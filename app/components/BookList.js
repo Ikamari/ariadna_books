@@ -4,11 +4,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-const BOOK_TYPES = ['book', 'rick_book', 'note', 'pad']
+const BOOK_TYPES = ['book', 'rick_book', 'note', 'pad'];
 
 class BookTable extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             hiddenTableElements: false
@@ -16,6 +16,7 @@ class BookTable extends Component {
     }
 
     drawBookElement(bookData, index) {
+        const { removeBook } = this.props;
         return (
             <div className='book-table-element' key={`book-${index}`}>
                 <span className='book-index'>{index}</span>
@@ -25,7 +26,7 @@ class BookTable extends Component {
                     <div className='edit-button'>Изменить</div>
                 </div>
                 <div className='button-wrapper'>
-                    <div className='remove-button'>Удалить</div>
+                    <div className='remove-button' onClick={() => removeBook(index)}>Удалить</div>
                 </div>
             </div>
         )

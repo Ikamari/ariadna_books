@@ -1,5 +1,5 @@
 export const addBook = (type, title, text) => ({
-    type: "ADD_BOOK",
+    type: 'ADD_BOOK',
     payload: {
         type,
         title,
@@ -8,7 +8,7 @@ export const addBook = (type, title, text) => ({
 });
 
 export const editBook = (type, title, text, index) => ({
-    type: "EDIT_BOOK",
+    type: 'EDIT_BOOK',
     payload: {
         type,
         title,
@@ -18,12 +18,12 @@ export const editBook = (type, title, text, index) => ({
 });
 
 export const removeBook = (index) => ({
-    type: "REMOVE_BOOK",
+    type: 'REMOVE_BOOK',
     payload: {
         index
     }
 });
 
 export const removeAllBooks = () => ({
-    type: "REMOVE_ALL_BOOKS"
+    type: 'REMOVE_ALL_BOOKS'
 });
