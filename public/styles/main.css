@@ -1,8 +1,31 @@
 .book-table {
     display: block;
+    height: 500px;
     width: 30%;
+    padding: 0 8px;
     margin: 0 auto;
+    border-right: 2px solid rebeccapurple;
+    border-left: 2px solid rebeccapurple;
+    border-radius: 12px;
     font-family: "Comic Sans MS", cursive;
+    overflow-y: auto;
+    transition-duration: 0.3s;
+}
+
+.book-table.hidden-elements {
+    height: 50px;
+}
+
+.book-table.hidden-elements .button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.book-table.hidden-elements .button-wrapper * {
+    width: 15%;
 }
 
 .book-table .book-table-element {
@@ -12,6 +35,7 @@
     padding: 4px;
     margin-bottom: 8px;
     border-bottom: 2px solid rebeccapurple;
+    border-collapse: collapse;
 }
 
 .book-table .book-table-element:first-child {
@@ -41,19 +65,31 @@
     width: 15%;
 }
 
-.book-table .edit-button {
+.book-table .button-wrapper * {
     display: block;
     width: 100%;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+.book-table .button-wrapper *:hover {
+    outline: 2px ridge var(--underline-color);
+}
+
+.book-table .hide-button {
+    --underline-color: cadetblue;
+    color: cadetblue;
+}
+
+.book-table .edit-button {
+    --underline-color: limegreen;
     color: limegreen;
 }
 
 .book-table .remove-button {
-    display: block;
-    width: 100%;
-    font-weight: bold;
-    text-align: center;
+    --underline-color: crimson;
     color: crimson;
 }
 
