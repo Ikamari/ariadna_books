@@ -1,1 +1,2 @@
-# ariadna_books
+# Book creator for Ariadna
+
