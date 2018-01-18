@@ -1,12 +1,15 @@
 // React
-import React, { Component } from "react";
-import PropTypes from "prop-types"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 // Redux
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+// Helpers
+import FileDisassembler from '../helpers/BookDisassembler'
 
-class FileLoader extends Component {
+class BookLoader extends Component {
     getFilesFromInput (inputData) {
-        const { returnPath, extension } = this.props;
+        const { extension, addBook } = this.props;
         let validFiles = {}, fileNum = 0;
 
         //Will remove files with wrong extension or return all files, if there in no required extension given
@@ -24,10 +27,18 @@ class FileLoader extends Component {
         }
         console.log(validFiles);
 
-        //Will convert files to dataURL
-        let reader = new FileReader(), filesToReturn = {}, counter = 0;
+        let counter = 0;
+        //Will call promises that disassemble old format books
         const saveFile = () => {
-            returnPath(validFiles, fileNum);
+            FileDisassembler(validFiles[counter]).then((bookData) => {
+                const {type, title, text} = bookData;
+
+                addBook(type, title, text);
+                counter++;
+                if(counter < fileNum) {
+                    saveFile()
+                }
+            });
         };
         saveFile();
     }
@@ -55,17 +66,23 @@ class FileLoader extends Component {
     }
 }
 
+// Actions
+import { addBook } from '../actions/booksActions'
+
+const mapDispatchToProps = dispatch => ({
+    addBook: bindActionCreators(addBook, dispatch),
+});
+
 const mapStateToProps = state => ({
     processStatus: state.processStatus,
 });
 
-FileLoader.propTypes = {
+BookLoader.propTypes = {
     extension: PropTypes.string,
-    returnPath: PropTypes.func.isRequired
 };
 
-FileLoader.defaultProps = {
+BookLoader.defaultProps = {
     extension: null,
 };
 
-export default connect(mapStateToProps)(FileLoader)
+export default connect(mapStateToProps, mapDispatchToProps)(BookLoader)

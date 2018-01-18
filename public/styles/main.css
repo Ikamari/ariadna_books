@@ -1,0 +1,59 @@
+.book-table {
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    font-family: "Comic Sans MS", cursive;
+}
+
+.book-table .book-table-element {
+    display: block;
+    color: rebeccapurple;
+    text-align: left;
+    padding: 4px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid rebeccapurple;
+}
+
+.book-table .book-table-element:first-child {
+    font-weight: bold;
+    border-bottom: none;
+}
+
+.book-table .book-index {
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+}
+
+.book-table .book-title {
+    display: inline-block;
+    width: 40%;
+}
+
+.book-table .book-type {
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+}
+
+.book-table .button-wrapper {
+    display: inline-block;
+    width: 15%;
+}
+
+.book-table .edit-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    color: limegreen;
+}
+
+.book-table .remove-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    color: crimson;
+}
+
