@@ -7,6 +7,7 @@ const books = (state = initialState, action) => {
         case 'ADD_BOOK': {
             const bookData = {
                 type: action.payload.type,
+                name: action.payload.name,
                 title: action.payload.title,
                 text: action.payload.text
             };
@@ -18,8 +19,9 @@ const books = (state = initialState, action) => {
         case 'EDIT_BOOK': {
             const bookData = {
                 type: action.payload.type,
+                name: action.payload.name,
                 title: action.payload.title,
-                text: action.payload.text
+                text: action.payload.text,
             };
             let books = state.books.splice(0);
 

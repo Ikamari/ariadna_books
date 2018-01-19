@@ -1,11 +1,36 @@
+/*////////////////////////////////////////*/
+/*//////////////////APP///////////////////*/
+/*////////////////////////////////////////*/
+
+.app {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*////////////////////////////////////////*/
+/*/////////////BOOK  LOADER///////////////*/
+/*////////////////////////////////////////*/
+
+.book-loader {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/*////////////////////////////////////////*/
+/*///////////////BOOK TABLE///////////////*/
+/*////////////////////////////////////////*/
+
 .book-table {
     display: block;
-    height: 500px;
-    width: 30%;
+    height: 300px;
+    width: 40%;
     padding: 0 8px;
     margin: 0 auto;
-    border-right: 2px solid rebeccapurple;
-    border-left: 2px solid rebeccapurple;
+    border-right: 1px solid rebeccapurple;
+    border-left: 1px solid rebeccapurple;
     border-radius: 12px;
     font-family: "Comic Sans MS", cursive;
     overflow-y: auto;
@@ -25,7 +50,7 @@
 }
 
 .book-table.hidden-elements .button-wrapper * {
-    width: 15%;
+    width: 20%;
 }
 
 .book-table .book-table-element {
@@ -45,13 +70,18 @@
 
 .book-table .book-index {
     display: inline-block;
-    width: 15%;
+    width: 5%;
     text-align: center;
+}
+
+.book-table .book-name {
+    display: inline-block;
+    width: 25%;
 }
 
 .book-table .book-title {
     display: inline-block;
-    width: 40%;
+    width: 25%;
 }
 
 .book-table .book-type {
@@ -93,7 +123,149 @@
     color: crimson;
 }
 
-.hidden {
+/*////////////////////////////////////////*/
+/*///////////////BOOK EDITOR /////////////*/
+/*////////////////////////////////////////*/
+
+.book-editor-wrapper {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.book-editor {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.book-editor input, textarea {
+    width: 100%;
+    border: 1px solid rebeccapurple;
+    height: 30px;
+    padding: 5px 1px;
+    margin: 3px 0;
+    font-size: 14px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.book-creator input::value, textarea::value {
+    font-family: "Comic Sans MS", cursive;
+}
+
+.book-editor textarea {
+    height: 200px;
+    margin-bottom: 8px;
+    resize: none;
+}
+
+.book-editor input::placeholder, textarea::placeholder{
+    font-size: 14px;
+    font-family: "Comic Sans MS", cursive;
+    color: slategray;
+}
+
+.book-editor .book-type-select-label {
+    margin-right: 12px;
+    font-size: 16px;
+    font-family: "Comic Sans MS", cursive;
+}
+
+.book-editor .add-book-button, .cancel-book-button, .file-upload-button {
+    height: 30px;
+    width: 250px;
+    margin: 10px auto;
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rebeccapurple;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border: none;
+}
+
+.book-editor .add-book-button:hover, .cancel-book-button:hover, .file-upload-button:hover {
+    background-color: mediumpurple;
+}
+
+/*////////////////////////////////////////*/
+/*////////BOOK EDITOR RADIO BUTTONS///////*/
+/*////////////////////////////////////////*/
+
+.book-type-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.book-type-option {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.book-type-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.book-type-option span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.book-type-option span:hover {
+    background-color: #ccc;
+}
+
+.book-type-option input:checked ~ span {
+    background-color: rebeccapurple;
+}
+
+.book-type-option span:after {
+    content: "";
+    position: absolute;
     display: none;
 }
 
+.book-type-option input:checked ~ .span:after {
+    display: block;
+}
+
+.book-type-option span:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/*////////////////////////////////////////*/
+/*///////////////////OTHER////////////////*/
+/*////////////////////////////////////////*/
+
+.hidden {
+    display: none;
+}

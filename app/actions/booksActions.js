@@ -1,16 +1,18 @@
-export const addBook = (type, title, text) => ({
+export const addBook = (type, name, title, text) => ({
     type: 'ADD_BOOK',
     payload: {
         type,
+        name,
         title,
         text
     }
 });
 
-export const editBook = (type, title, text, index) => ({
+export const editBook = (type, name, title, text, index) => ({
     type: 'EDIT_BOOK',
     payload: {
         type,
+        name,
         title,
         text,
         index

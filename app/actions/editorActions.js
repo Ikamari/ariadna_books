@@ -5,14 +5,7 @@ export const startEditing = (id) => ({
     }
 });
 
-export const endEditing = () => ({
-    type: 'END_EDITING',
+export const finishEditing = () => ({
+    type: 'FINISH_EDITING',
 });
 
-export const showElements = (index) => ({
-    type: 'SHOW_ELEMENTS',
-});
-
-export const hideElements = (index) => ({
-    type: 'HIDE_ELEMENTS',
-});

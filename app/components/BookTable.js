@@ -16,14 +16,15 @@ class BookTable extends Component {
     }
 
     drawBookElement(bookData, index) {
-        const { removeBook } = this.props;
+        const { removeBook, startEditing } = this.props;
         return (
             <div className='book-table-element' key={`book-${index}`}>
                 <span className='book-index'>{index}</span>
+                <span className='book-title'>{bookData.name}</span>
                 <span className='book-title'>{bookData.title}</span>
                 <span className='book-type'>{BOOK_TYPES[bookData.type]}</span>
                 <div className='button-wrapper'>
-                    <div className='edit-button'>Изменить</div>
+                    <div className='edit-button' onClick={() => startEditing(index)}>Изменить</div>
                 </div>
                 <div className='button-wrapper'>
                     <div className='remove-button' onClick={() => removeBook(index)}>Удалить</div>
@@ -46,7 +47,8 @@ class BookTable extends Component {
                 {!hidden ?
                     <div className='book-table-element'>
                         <span className='book-index'>ID</span>
-                        <span className='book-title'>Название</span>
+                        <span className='book-name'>Название файла</span>
+                        <span className='book-title'>Название книги</span>
                         <span className='book-type'>Тип</span>
                         <div className='button-wrapper'/>
                         <div className='button-wrapper'>
@@ -54,7 +56,7 @@ class BookTable extends Component {
                         </div>
                     </div> :
                     <div className='button-wrapper'>
-                        <div className='hide-button' onClick={() => this.hideTableElements()}>Показать</div>
+                        <div className='hide-button' onClick={() => this.hideTableElements()}>Показать книги</div>
                     </div>
                 }
                 {!hidden ?
@@ -66,9 +68,11 @@ class BookTable extends Component {
 
 // Actions
 import { removeBook } from '../actions/booksActions'
+import { startEditing } from '../actions/editorActions'
 
 const mapDispatchToProps = dispatch => ({
     removeBook: bindActionCreators(removeBook, dispatch),
+    startEditing: bindActionCreators(startEditing, dispatch)
 });
 
 const mapStateToProps = state => ({

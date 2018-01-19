@@ -25,15 +25,15 @@ class BookLoader extends Component {
             validFiles = inputData;
             fileNum = inputData.length;
         }
-        console.log(validFiles);
+        console.log('Valid files: ', validFiles);
 
         let counter = 0;
         //Will call promises that disassemble old format books
         const saveFile = () => {
             FileDisassembler(validFiles[counter]).then((bookData) => {
-                const {type, title, text} = bookData;
+                const {type, name, title, text} = bookData;
 
-                addBook(type, title, text);
+                addBook(type, name, title, text);
                 counter++;
                 if(counter < fileNum) {
                     saveFile()
@@ -49,18 +49,16 @@ class BookLoader extends Component {
     }
 
     render() {
-        const { skinsAreLoading, partsAreLoading, exporting } = this.props.processStatus;
         return (
-            <div>
+            <div className='book-loader'>
                 <label
-                    className={"file-upload-button" + ((skinsAreLoading || partsAreLoading || exporting) ? " unactive" : "")}
-                    htmlFor={(skinsAreLoading || partsAreLoading) ? "" : "file-upload"}
-                >Загрузить</label>
-                <input id="file-upload" name="files" onChange={(event) => {
+                    htmlFor={'file-upload'}
+                ><div className='file-upload-button'>Загрузить</div></label>
+                <input id='file-upload' className='hidden' name='files' onChange={(event) => {
                     event.preventDefault();
-                    console.log("Loaded files:", event.target.files);
+                    console.log('Loaded files:', event.target.files);
                     this.getFilesFromInput(event.target.files)
-                }} type="file" multiple/>
+                }} type='file' multiple/>
             </div>
         )
     }

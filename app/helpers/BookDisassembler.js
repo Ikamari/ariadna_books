@@ -1,5 +1,5 @@
-const splitBookData = (lines) => {
-    let text = '', title = 'Неизвестная книга';
+const splitBookData = (lines, bookname) => {
+    let text = '', title = 'Безымянная книга';
 
     // Get title of book
     if (lines[0].startsWith('Title: ')) {
@@ -18,7 +18,7 @@ const splitBookData = (lines) => {
         }
     }
 
-    return {type: 0, title, text}
+    return {type: 0, name: bookname.substr(0, bookname.length - 4), title, text}
 };
 
 const BookDisassembler = (file) => (
@@ -29,7 +29,7 @@ const BookDisassembler = (file) => (
             const content = e.target.result;
             const lines = content.split('\n');
 
-            resolve(splitBookData(lines))
+            resolve(splitBookData(lines, file.name))
         };
 
         fileReader.readAsText(file)
