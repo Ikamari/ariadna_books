@@ -1,15 +1,19 @@
 // React
 import React, { Component } from 'react'
 // Components
-import FileLoader from './components/BookLoader'
+import BookLoader from './components/BookLoader'
 import BookList from './components/BookTable'
 import BookEditor from './components/BookEditor'
+import BookExport from './components/BookExport'
 
 export default  class App extends Component {
     render() {
         return(
             <div className="app">
-                <FileLoader extension='yml'/>
+                <div className='row'>
+                    <BookLoader extension='yml'/>
+                    <BookExport/>
+                </div>
                 <BookList/>
                 <BookEditor/>
             </div>

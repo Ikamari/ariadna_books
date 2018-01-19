@@ -96,14 +96,16 @@ class BookEditor extends Component {
                         <span className='book-type-select-label'>Тип:</span>
                         {BOOK_TYPES.map((text, index) => this.renderBookTypeRadio(text, index))}
                     </div>
-                    <button className='add-book-button'
-                            onClick={editingId !== null ? (e) => this.acceptChanges(editingId, e) : (e) => this.saveBook(e)}>
-                        {editingId !== null ? `Применить изменения (id: ${editingId})` : 'Создать книгу'}
-                    </button>
-                    <button className='cancel-book-button'
-                            onClick={(e) => this.clearFields(e)}>
-                        {editingId !== null ? 'Отменить изменения' : 'Очистить'}
-                    </button>
+                    <div className='row'>
+                        <button className='add-book-button'
+                                onClick={editingId !== null ? (e) => this.acceptChanges(editingId, e) : (e) => this.saveBook(e)}>
+                            {editingId !== null ? `Применить изменения (id: ${editingId})` : 'Создать книгу'}
+                        </button>
+                        <button className='cancel-book-button'
+                                onClick={(e) => this.clearFields(e)}>
+                            {editingId !== null ? 'Отменить изменения' : 'Очистить'}
+                        </button>
+                    </div>
                 </form>
             </div>
         )

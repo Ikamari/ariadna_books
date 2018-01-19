@@ -8,6 +8,12 @@
     height: 100%;
 }
 
+.app .row {
+    display: flex;
+    width: 500px;
+    margin: 0 auto;
+}
+
 /*////////////////////////////////////////*/
 /*/////////////BOOK  LOADER///////////////*/
 /*////////////////////////////////////////*/
@@ -23,18 +29,41 @@
 /*///////////////BOOK TABLE///////////////*/
 /*////////////////////////////////////////*/
 
-.book-table {
+.book-table-wrapper {
     display: block;
-    height: 300px;
     width: 40%;
-    padding: 0 8px;
+    min-width: 560px;
     margin: 0 auto;
     border-right: 1px solid rebeccapurple;
     border-left: 1px solid rebeccapurple;
     border-radius: 12px;
+}
+
+.book-table {
+    display: block;
+    height: 300px;
+    width: 95%;
+    padding: 0 8px;
+    margin: 0 auto;
     font-family: "Comic Sans MS", cursive;
     overflow-y: auto;
     transition-duration: 0.3s;
+}
+
+.book-table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.book-table::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+.book-table::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: rebeccapurple;
 }
 
 .book-table.hidden-elements {
@@ -137,6 +166,7 @@
     display: flex;
     flex-direction: column;
     width: 40%;
+    min-width: 550px;
     margin: 0 auto;
 }
 
@@ -175,10 +205,14 @@
     font-family: "Comic Sans MS", cursive;
 }
 
-.book-editor .add-book-button, .cancel-book-button, .file-upload-button {
+/*////////////////////////////////////////*/
+/*////////////////BUTTONS/////////////////*/
+/*////////////////////////////////////////*/
+
+.book-editor .add-book-button, .cancel-book-button, .file-upload-button, .book-export-button {
     height: 30px;
     width: 250px;
-    margin: 10px auto;
+    margin: 10px;
     font-size: 14px;
     line-height: 30px;
     font-family: "Comic Sans MS", cursive, sans-serif;
@@ -190,7 +224,7 @@
     border: none;
 }
 
-.book-editor .add-book-button:hover, .cancel-book-button:hover, .file-upload-button:hover {
+.book-editor .add-book-button:hover, .cancel-book-button:hover, .file-upload-button:hover, .book-export-button:hover {
     background-color: mediumpurple;
 }
 

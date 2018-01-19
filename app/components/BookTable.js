@@ -43,24 +43,26 @@ class BookTable extends Component {
         const { books } = this.props;
         const hidden = this.state.hiddenTableElements;
         return (
-            <div className={'book-table' + (hidden ? ' hidden-elements' : '')}>
-                {!hidden ?
-                    <div className='book-table-element'>
-                        <span className='book-index'>ID</span>
-                        <span className='book-name'>Название файла</span>
-                        <span className='book-title'>Название книги</span>
-                        <span className='book-type'>Тип</span>
-                        <div className='button-wrapper'/>
+            <div className='book-table-wrapper'>
+                <div className={'book-table' + (hidden ? ' hidden-elements' : '')}>
+                    {!hidden ?
+                        <div className='book-table-element'>
+                            <span className='book-index'>ID</span>
+                            <span className='book-name'>Название файла</span>
+                            <span className='book-title'>Название книги</span>
+                            <span className='book-type'>Тип</span>
+                            <div className='button-wrapper'/>
+                            <div className='button-wrapper'>
+                                <div className='hide-button' onClick={() => this.hideTableElements()}>Скрыть</div>
+                            </div>
+                        </div> :
                         <div className='button-wrapper'>
-                            <div className='hide-button' onClick={() => this.hideTableElements()}>Скрыть</div>
+                            <div className='hide-button' onClick={() => this.hideTableElements()}>Показать книги</div>
                         </div>
-                    </div> :
-                    <div className='button-wrapper'>
-                        <div className='hide-button' onClick={() => this.hideTableElements()}>Показать книги</div>
-                    </div>
-                }
-                {!hidden ?
-                    books.map((bookData, index) => this.drawBookElement(bookData, index)) : null}
+                    }
+                    {!hidden ?
+                        books.map((bookData, index) => this.drawBookElement(bookData, index)) : null}
+                </div>
             </div>
         )
     }

@@ -53,7 +53,7 @@ class BookLoader extends Component {
             <div className='book-loader'>
                 <label
                     htmlFor={'file-upload'}
-                ><div className='file-upload-button'>Загрузить</div></label>
+                ><div className='file-upload-button'>Загрузить (Только .yml)</div></label>
                 <input id='file-upload' className='hidden' name='files' onChange={(event) => {
                     event.preventDefault();
                     console.log('Loaded files:', event.target.files);
