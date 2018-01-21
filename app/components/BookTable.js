@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-const BOOK_TYPES = ['book', 'rick_book', 'note', 'pad'];
+const BOOK_TYPES = ['book', 'rich_book', 'note', 'pad'];
 
 class BookTable extends Component {
     constructor(props) {
@@ -24,10 +24,10 @@ class BookTable extends Component {
                 <span className='book-title'>{bookData.title}</span>
                 <span className='book-type'>{BOOK_TYPES[bookData.type]}</span>
                 <div className='button-wrapper'>
-                    <div className='edit-button' onClick={() => startEditing(index)}>Изменить</div>
+                    <div className='book-table-edit-button' onClick={() => startEditing(index)}>Изменить</div>
                 </div>
                 <div className='button-wrapper'>
-                    <div className='remove-button' onClick={() => removeBook(index)}>Удалить</div>
+                    <div className='book-table-remove-button' onClick={() => removeBook(index)}>Удалить</div>
                 </div>
             </div>
         )
@@ -53,11 +53,11 @@ class BookTable extends Component {
                             <span className='book-type'>Тип</span>
                             <div className='button-wrapper'/>
                             <div className='button-wrapper'>
-                                <div className='hide-button' onClick={() => this.hideTableElements()}>Скрыть</div>
+                                <div className='book-table-hide-button' onClick={() => this.hideTableElements()}>Скрыть</div>
                             </div>
                         </div> :
                         <div className='button-wrapper'>
-                            <div className='hide-button' onClick={() => this.hideTableElements()}>Показать книги</div>
+                            <div className='book-table-hide-button' onClick={() => this.hideTableElements()}>Показать книги</div>
                         </div>
                     }
                     {!hidden ?

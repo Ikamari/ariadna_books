@@ -137,17 +137,17 @@
     outline: 2px ridge var(--underline-color);
 }
 
-.book-table .hide-button {
+.book-table .book-table-hide-button {
     --underline-color: cadetblue;
     color: cadetblue;
 }
 
-.book-table .edit-button {
+.book-table .book-table-edit-button {
     --underline-color: limegreen;
     color: limegreen;
 }
 
-.book-table .remove-button {
+.book-table .book-table-remove-button {
     --underline-color: crimson;
     color: crimson;
 }

@@ -8,7 +8,7 @@ import JSZip from "jszip";
 // Filesaver
 import FileSaver from 'filesaver.js-npm';
 
-const BOOK_TYPES = ['book', 'rick_book', 'note', 'pad'];
+const BOOK_TYPES = ['book', 'rich_book', 'note', 'pad'];
 
 class BookExport extends Component {
     makeFile(book) {
@@ -45,9 +45,9 @@ class BookExport extends Component {
         const { isLoading } = this.props;
         return (
             <div className='book-export'>
-                <div className="book-export-button" onClick={() => this.startExport()}>
+                <button className="book-export-button" onClick={() => this.startExport()}>
                     {isLoading ? 'Выполняю...' : 'Экспортировать'}
-                </div>
+                </button>
             </div>
         )
     }
