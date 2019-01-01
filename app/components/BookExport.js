@@ -8,7 +8,7 @@ import JSZip from "jszip";
 // Filesaver
 import FileSaver from 'filesaver.js-npm';
 
-const BOOK_TYPES = ['book', 'rich_book', 'note', 'pad'];
+const BOOK_TYPES = ['regular', 'rich_book', 'note', 'pad'];
 
 class BookExport extends Component {
     makeFile(book) {

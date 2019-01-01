@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
-const BOOK_TYPES = ['book', 'rich_book', 'note', 'pad'];
+const BOOK_TYPES = ['regular', 'rich_book', 'note', 'pad'];
 
 class BookTable extends Component {
     constructor(props) {
